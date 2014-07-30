@@ -1,0 +1,27 @@
+{% extends "todo/base.html" %}
+
+{% block title %} Anna's To-Do List {% endblock %}
+
+{% block content %}
+
+<h2>Other To-Do List Websites</h2>
+
+<p>Here is a list of other websites you can use to create to-do lists:</p>
+<ul>
+	<li><a href="http://en.todoist.com">Todoist</a></li>
+	<li><a href="http://keep.google.com">Google Keep</a></li>
+	<li><a href="http://www.wunderlist.com/en/">Wunderlist</a></li>
+	<li><a href="http://habitrpg.com/static/front">HabitRPG</a></li>
+	<li><a href="http://www.any.do/anydo">Any.do</a></li>
+</ul>
+</br>
+
+<ul>
+	<li><a href="{% url 'todo:index' %}">Home</a></li>
+	<li><a href="{% url 'todo:about' %}">About</a></li>
+	<li><a href="{% url 'todo:create' %}">Create To-Do List</a></li>
+	<li><a href="{% url 'todo:load' %}">Load To-Do List</a></li>
+	<li><a href="{% url 'todo:links' %}">Other To-Do List Links</a></li>
+</ul>
+
+{% endblock %}

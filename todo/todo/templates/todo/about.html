@@ -1,0 +1,21 @@
+{% extends "todo/base.html" %}
+
+{% block title %} Anna's To-Do List {% endblock %}
+
+{% block content %}
+
+<h2>About:</h2>
+
+<p>This website can be used to create a simple to-do list. 
+You can also load your previously saved to-do list as well as use the 
+<a href="{% url 'todo:links' %}">Links</a> page to go to other to-do list websites.</p>
+
+<ul>
+	<li><a href="{% url 'todo:index' %}">Home</a></li>
+	<li><a href="{% url 'todo:about' %}">About</a></li>
+	<li><a href="{% url 'todo:create' %}">Create To-Do List</a></li>
+	<li><a href="{% url 'todo:load' %}">Load To-Do List</a></li>
+	<li><a href="{% url 'todo:links' %}">Other To-Do List Links</a></li>
+</ul>
+
+{% endblock %}

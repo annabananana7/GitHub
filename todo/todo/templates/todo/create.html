@@ -1,0 +1,30 @@
+{% extends "todo/base.html" %}
+
+{% block title %} Anna's To-Do List {% endblock %}
+
+{% block content %}
+
+<h2>Create Your To-Do List</h2>
+
+<form action="{% url 'todo:create' %}" method="POST">
+	{% csrf_token %}
+		
+	<input name="todo_item" id="todo_text" maxlength="150" placeholder="Enter a to-do item" />
+	<input type="submit" id="save" value="Save">
+</form>
+
+<table id="todo_table">
+	{% for todo in todo.item_set.all %}
+		<tr><td>{{ forloop.counter }}: {{ todo.todo_text }}</td></tr>
+	{% endfor %}
+</table>
+
+<ul>
+	<li><a href="{% url 'todo:index' %}">Home</a></li>
+	<li><a href="{% url 'todo:about' %}">About</a></li>
+	<li><a href="{% url 'todo:create' %}">Create To-Do List</a></li>
+	<li><a href="{% url 'todo:load' %}">Load To-Do List</a></li>
+	<li><a href="{% url 'todo:links' %}">Other To-Do List Links</a></li>
+</ul>
+
+{% endblock %}

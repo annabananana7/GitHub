@@ -1,0 +1,25 @@
+{% extends "todo/base.html" %}
+
+{% block title %} Anna's To-Do List {% endblock %}
+
+{% block content %}
+
+<h2>Your to-do list has been loaded!</h2>
+
+<ul>
+	{% for Item in todo.Item_set.all %}
+		<tr><td>{{ forloop.counter }}: {{ Item.todo_text }}</td></tr>
+	{% endfor %} 
+</ul>
+
+<a href="{% url 'todo:create' %}">Add more to-do items</a>
+
+<ul>
+	<li><a href="{% url 'todo:index' %}">Home</a></li>
+	<li><a href="{% url 'todo:about' %}">About</a></li>
+	<li><a href="{% url 'todo:create' %}">Create To-Do List</a></li>
+	<li><a href="{% url 'todo:load' %}">Load To-Do List</a></li>
+	<li><a href="{% url 'todo:links' %}">Other To-Do List Links</a></li>
+</ul>
+
+{% endblock %}
